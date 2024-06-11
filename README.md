@@ -22,6 +22,7 @@ api-automation-test/
 ├── src/
 │ ├── data/
 │ │ └── createUserDto.ts
+│ │ └── userDto.ts
 │ ├── tests/
 │ │ └── userApiTests.spec.ts
 │ ├── utils/
