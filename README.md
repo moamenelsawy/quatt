@@ -17,7 +17,8 @@ and HTTP Bearer Token authentication from https://gorest.co.in/ service. using P
 ## Project Structure
 The project is organized as follows:
 api-automation-test/
-│
+
+```
 ├── src/
 │ ├── data/
 │ │ └── createUserDto.ts
@@ -36,7 +37,7 @@ api-automation-test/
 ├── tsconfig.json
 ├── playwright.config.ts
 └── README.md
-
+```
 
 - **data/**: Contains data transfer objects (DTOs) for the API requests.
 - **tests/**: Contains test specifications.
@@ -147,8 +148,10 @@ For the CI my access token is added as a Github secret.
 
 ### Possible next steps for such a project
 **Error Handling**: Improve error handling in the ApiClient class to handle and log API errors more gracefully.
+
 **Test Coverage**: Increase test coverage to include more edge cases and validation checks.
 Code Documentation: Add more comments and documentation to the code to improve readability and maintainability.
+
 **CI/CD Enhancements**: Add notifications for CI/CD failures to alert the team when tests fail.
 
 ### Contributing
