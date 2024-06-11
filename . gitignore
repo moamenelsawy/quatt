@@ -1,0 +1,9 @@
+# .gitignore
+# Compiled source #
+dist/
+
+# Environment variables #
+.env
+
+# Test results #
+test-results.json
