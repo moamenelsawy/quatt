@@ -114,8 +114,9 @@ export default defineConfig({
   reporter: [['list'], ['json', { outputFile: 'test-results.json' }]],
 });
 ```
-###Running Tests
-####Run All Tests
+### Running Tests
+
+#### Run All Tests
 To run all tests run the command:
 ``
 npx playwright test
@@ -127,31 +128,31 @@ To run the tests in debug mode:
 npx playwright test --debug
 ``
 
-###Viewing Results
-####Locally
+### Viewing Results
+#### Locally
 After running tests, you can view the results in the terminal output. For detailed HTML reports, you can use Playwright's built-in reporters.
 
-####GitHub Actions
+#### GitHub Actions
 You can view the results of the test runs in the **Actions** tab of your GitHub repository. Detailed reports and logs are available for each workflow run.
 
-###CI/CD with GitHub Actions
-####Workflow Configuration
+### CI/CD with GitHub Actions
+#### Workflow Configuration
 The CI/CD is configured using GitHub Actions. Two workflows are set up:
 
 **CI/CD Workflow**: Runs on push and PRs review request events targeting the main branch.
 **Nightly Workflow**: Runs every night at midnight.
 
-####Github secret
+#### Github secret
 For the CI the access token is added as a Github secret.
 
-###Possible next steps for such a project
+### Possible next steps for such a project
 **Error Handling**: Improve error handling in the ApiClient class to handle and log API errors more gracefully.
 **Test Coverage**: Increase test coverage to include more edge cases and validation checks.
 Code Documentation: Add more comments and documentation to the code to improve readability and maintainability.
 **CI/CD Enhancements**: Add notifications for CI/CD failures to alert the team when tests fail.
 
-###Contributing
-If contributions are inteded Please follow these steps to contribute:
+### Contributing
+If contributions are intended Please follow these steps to contribute:
 
 1. Fork the repository.
 2. Create a new branch (git checkout -b feature-branch).
