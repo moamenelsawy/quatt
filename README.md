@@ -143,7 +143,7 @@ The CI/CD is configured using GitHub Actions. Two workflows are set up:
 **Nightly Workflow**: Runs every night at midnight.
 
 #### Github secret
-For the CI the access token is added as a Github secret.
+For the CI my access token is added as a Github secret.
 
 ### Possible next steps for such a project
 **Error Handling**: Improve error handling in the ApiClient class to handle and log API errors more gracefully.
