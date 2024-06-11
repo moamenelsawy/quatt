@@ -1,29 +1,31 @@
 import { test, expect } from '@playwright/test';
 import { ApiClient } from '../api/apiClient';
 import { CreateUserDto, createActiveUser } from '../data/createUserDto';
-import { faker } from '@faker-js/faker';
+import { UserDto } from '../data/userDto';
+import ENV from '../utils/env';
 
-test.describe('User CRUD operations', () => {
+test.describe.serial('User CRUD operations', () => {
     let apiClient: ApiClient;
     let userId: number;
+    let initialUserData: CreateUserDto;
+    let newUser: UserDto;
 
-    test.beforeAll(() => {
+    test.beforeAll(async () => {
         apiClient = new ApiClient();
-    });
-
-    test('Create a new user', async () => {
-        const userData = createActiveUser();
-        const newUser = await apiClient.createUser(userData);
+        initialUserData = createActiveUser();
+        newUser = await apiClient.createUser(initialUserData);
         userId = newUser.id;
-
-        expect(newUser.name).toBe(userData.name);
-        expect(newUser.email).toBe(userData.email);
-        expect(newUser.gender).toBe(userData.gender);
-        expect(newUser.status).toBe(userData.status);
+    });
+    test('Verify new user creation', async () => {
+        expect(newUser.name).toBe(initialUserData.name);
+        expect(newUser.email).toBe(initialUserData.email);
+        expect(newUser.gender).toBe(initialUserData.gender);
+        expect(newUser.status).toBe(initialUserData.status);
     });
 
     test('Read user details', async () => {
         const user = await apiClient.getUser(userId);
+
         expect(user.id).toBe(userId);
     });
 
@@ -49,8 +51,8 @@ test.describe('User CRUD operations', () => {
         await apiClient.deleteUser(userId);
 
         await expect(apiClient.getUser(userId)).rejects.toThrowError({
-            message: 'Request failed with status code 404',
-            status: 404
+            message: ENV.DELETION_ERROR_TXT,
+            status: ENV.DELETION_ERROR_CODE
         });
     });
 });
