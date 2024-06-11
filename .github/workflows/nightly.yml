@@ -2,7 +2,7 @@ name: Nightly runs
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   test:
@@ -24,8 +24,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: npx playwright test
 
       - name: Upload Playwright report
